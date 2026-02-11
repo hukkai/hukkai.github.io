@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Kai Hu — Papers</title>
+<style>
+    :root { color-scheme: light dark; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      line-height:1.55;
+    }
+    main{ max-width: 900px; margin: 0 auto; padding: 32px 18px; }
+    header{ margin-bottom: 18px; }
+    h1{ font-size: 24px; margin: 0 0 6px 0; }
+    .sub{ margin:0; opacity: 0.75; }
+    h2{ font-size: 28px; margin: 22px 0 10px; }
+    ul.papers{ margin: 0; padding-left: 18px; }
+    li.paper{ margin: 10px 0 14px; }
+    .title{ font-weight: 650; }
+    .tag{
+      display:inline-block;
+      font-size:12px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(128,128,128,0.35);
+      border: 1px solid color-mix(in srgb, currentColor 18%, transparent);
+      opacity: 0.9;
+      margin-left: 8px;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+    .authors{ margin: 6px 0 0; opacity: 0.85; }
+    .links{ margin-top: 6px; display:flex; gap: 10px; flex-wrap: wrap; }
+    a{ text-decoration: none; border-bottom: 1px solid currentColor; }
+    a:hover{ opacity: 0.85; }
+    details{ margin-top: 8px; }
+    summary{ cursor: pointer; user-select: none; opacity: 0.9; }
+    .abstract{ margin: 8px 0 0; opacity: 0.9; }
+    footer{ margin-top: 26px; opacity: 0.7; font-size: 12px; }
+    code.inline{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace; }
+  </style>
+</head>
+<body>
+<main>
+<header>
+<h1>Kai Hu — Research Works</h1>
+<p class="sub">I am a PhD student at Carnegie Mellon University and my advisor is Professor Matt Fredrikson.</a></p>
+<p class="sub">Email: <a href="mailto:kaihu@cmu.edu">kaihu@cmu.edu</a></p>
+</header>
+<h2>Safety and Security of Large Language Models</h2>
+<ul class="papers">
+<li class="paper">
+<div class="title">
+          Steal the Patch Size: Adversarially Manipulate Vision Language Models
+          <span class="tag">Under Review</span>
+</div>
+<div class="authors"><strong>Kai Hu</strong>, Akash Bharadwaj, Weichen Yu, Matt Fredrikson</div>
+<div class="links">
+<a href="https://github.com/hukkai/Patch-Steal/blob/main/Steal_the_Patch_Size.pdf" rel="noopener noreferrer" target="_blank">PDF</a>
+</div>
+<details>
+<summary>Abstract</summary>
+<p class="abstract">We present a black-box model-stealing attack that recovers private vision-tokenizer configurations of deployed vision-language models (VLMs), including the visual patch size and input preprocessing pipeline. The key idea is a task-level side channel induced by ViT-style patchification: when a synthetic grid image is aligned with the hidden patch grid, boundary cues are erased at tokenization, causing periodic accuracy drop. By sweeping the grid cell size and measuring these collapses, we infer the patch size; by introducing padding and a consistency-check test, we further identify whether preprocessing is dynamic- or fixed-resolution and recover the target resize resolution. Across open-source Qwen-VL variants and proprietary models including GPT and Claude, we reliably recover tokenizer-related parameters. Finally, we show that such leakage enables preprocessing-aware transfer attacks and model-targeted adversarial manipulation.</p>
+</details>
+</li>
+<li class="paper">
+<div class="title">
+          Jailbreak-Zero: A Path to Pareto Optimal Red Teaming for Large Language Models
+          <span class="tag">Under Review</span>
+</div>
+<div class="authors"><strong>Kai Hu</strong>, Abhinav Aggarwal, Mehran Khodabandeh, David Zhang, Eric Hsin, Li Chen, Ankit Jain, Matt Fredrikson, Akash Bharadwaj</div>
+<div class="links">
+<a href="https://arxiv.org/pdf/2601.03265" rel="noopener noreferrer" target="_blank">PDF</a>
+</div>
+<details>
+<summary>Abstract</summary>
+<p class="abstract">This paper presents a novel Automated Red Teaming (ART) framework that shifts from example-based to policy-based evaluation, addressing critical limitations in scalability and validity. We define harmful content through abstract safety policies rather than specific static examples. We also introduce multiple evaluation objectives: risk coverage, semantic diversity, and fidelity, and discover Pareto trade-offs between them. We propose Jailbreak-Zero, a black-box method capable of both zero-shot generation and fine-tuned exploitation of a victim's vulnerabilities to achieve Pareto-optimality. Unlike prior approaches, it does not require expert-designed strategies/prompts, but still achieves superior, human-readable attacks against open-source and proprietary models (attack success rates of 99.5% against GPT-4o and 96.0% against Claude 3.5), even for unseen safety policies. It retains efficacy even after victim models undergo safety alignment, and exposes controls to navigate Pareto trade-offs <strong>without</strong> re-training. Lastly, we show that Jailbreak-Zero is the most performant ART method at a given compute budget.</p>
+</details>
+</li>
+<li class="paper">
+<div class="title">
+          Transferable Adversarial Attack on Vision-enabled Large Language Models
+          <span class="tag">Under Review</span>
+</div>
+<div class="authors"><strong>Kai Hu</strong>, Weichen Yu, Li Zhang, Alexander Robey, Andy Zou, Haoqi Hu, Chengming Xu, Matt Fredrikson</div>
+<div class="links">
+<a href="https://openreview.net/pdf?id=HkluKBF9hq" rel="noopener noreferrer" target="_blank">PDF</a>
+<a href="https://github.com/hukkai/transferable_mllm_attack" rel="noopener noreferrer" target="_blank">Code</a>
+</div>
+<details>
+<summary>Abstract</summary>
+<p class="abstract">The rapid advancement of Multimodal Large Language Models (MLLMs) has greatly enhanced various applications but simultaneously raised significant security concerns, particularly related to visual adversarial attacks. Current adversarial robustness evaluations are limited to simple tasks like object classification and short captioning. Therefore, we introduce new evaluation settings: in addition to the image captioning setting, open-ended Visual Question Answering (VQA) and text spotting are also introduced to challenge existing attack methods. We propose a systematic transfer-based adversarial pipeline, improving the attack transferability for proprietary black-box MLLMs from model, loss function and data level. Empirical results demonstrate strong transferability, achieving up to 84.8% and 47.1% success rates on GPT-4o and Claude 3.5 for image captioning (ε = 8/255), and 31% and 24% for text recognition (ε = 16/255). Our work demonstrates that adversarial attacks on image modalities are feasible and highly successful even on proprietary MLLMs.</p>
+</details>
+</li>
+<li class="paper">
+<div class="title">
+          LLM-based Multi-Agents System Attack via Continuous Optimization with Discrete Efficient Search
+          <span class="tag">COLM 2025</span>
+</div>
+<div class="authors">Weichen Yu, <strong>Kai Hu</strong>, Tianyu Pang, Chao Du, Min Lin, Matt Fredrikson</div>
+<div class="links">
+<a href="https://openreview.net/pdf?id=ED5diyzc1C" rel="noopener noreferrer" target="_blank">PDF</a>
+</div>
+<details>
+<summary>Abstract</summary>
+<p class="abstract">Large Language Model (LLM)-based Multi-Agent Systems (MAS) have demonstrated remarkable capability in complex tasks. However, emerging evidence indicates significant security vulnerabilities within these systems. In this paper, we introduce three novel and practical attack scenarios that allow only a single intervention on one agent from the MAS. However, previous methods struggle to achieve success. Thus, we propose Continuous Optimization with Discrete Efficient Search (CODES), a token-level jailbreak method that combines continuous-space optimization with discrete-space search to efficiently generate self-replicating attack prompts. Through CODES, malicious content propagates across multiple agents, compromising the entire MAS. In the three realistic threat scenarios—ranging from triggering offensive outputs across an entire agent cohort to bypassing multi-level safeguard modules, CODES demonstrate effectiveness. Our findings underscore the urgent need for more robust safety mechanisms tailored to MAS and highlight the importance of developing resilient alignment strategies to defend against this new class of adversarial threats.</p>
+</details>
+</li>
+<li class="paper">
+<div class="title">
+          Efficient LLM Jailbreak via Adaptive Dense-to-sparse Constrained Optimization
+          <span class="tag">NeurIPS 2024</span>
+</div>
+<div class="authors"><strong>Kai Hu</strong>, Weichen Yu, Yining Li, Tianjun Yao, Xiang Li, Wenhe Liu, Lijun Yu, Zhiqiang Shen, Kai Chen, Matt Fredrikson</div>
+<div class="links">
+<a href="https://arxiv.org/pdf/2405.09113" rel="noopener noreferrer" target="_blank">PDF</a>
+<a href="https://github.com/hukkai/adc_llm_attack" rel="noopener noreferrer" target="_blank">Code</a>
+</div>
+<details>
+<summary>Abstract</summary>
+<p class="abstract">Recent research indicates that large language models (LLMs) are susceptible to jailbreaking attacks that can generate harmful content. This paper introduces a novel token-level attack method, Adaptive Dense-to-Sparse Constrained Optimization (ADC), which has been shown to successfully jailbreak multiple open-source LLMs. Drawing inspiration from the difficulties of discrete token optimization, our method relaxes the discrete jailbreak optimization into a continuous optimization process while gradually increasing the sparsity of the optimizing vectors. This technique effectively bridges the gap between discrete and continuous space optimization. Experimental results demonstrate that our method is more effective and efficient than state-of-the-art token-level methods. On Harmbench, our approach achieves the highest attack success rate on seven out of eight LLMs compared to the latest jailbreak methods. </p>
+</details>
+</li>
+</ul>
+<h2>Certified Adversarial Robustness of Vision Models</h2>
+<ul class="papers">
+<li class="paper">
+<div class="title">
+          LipNeXt: Scaling up Lipschitz-based Certified Robustness to Billion-parameter Models
+          <span class="tag">ICLR 2026</span>
+</div>
+<div class="authors"><strong>Kai Hu</strong>, Haoqi Hu, Matt Fredrikson</div>
+<div class="links">
+<a href="https://arxiv.org/pdf/2601.18513" rel="noopener noreferrer" target="_blank">PDF</a>
+</div>
+<details>
+<summary>Abstract</summary>
+<p class="abstract">Lipschitz-based certification offers efficient, deterministic robustness guarantees but has struggled to scale in model size, training efficiency, and ImageNet performance. We introduce LipNeXt, the first constraint-free and convolution-free 1-Lipschitz architecture for certified robustness. LipNeXt is built using two techniques: (1) a manifold optimization procedure that updates parameters directly on the orthogonal manifold and (2) a Spatial Shift Module to model spatial pattern without convolutions. The full network uses orthogonal projections, spatial shifts, a simple 1-Lipschitz 𝛽-Abs nonlinearity, and L2 spatial pooling to maintain tight Lipschitz control while enabling expressive feature mixing. Across CIFAR-10/100 and Tiny-ImageNet, LipNeXt achieves state-of-the-art clean and certified robust accuracy (CRA), and on ImageNet it scales to 1–2B large models, improving CRA over prior Lipschitz models (e.g., up to +8% at ε = 1) while retaining efficient, stable low-precision training. These results demonstrate that Lipschitz-based certification can benefit from modern scaling trends without sacrificing determinism or efficiency.</p>
+</details>
+</li>
+<li class="paper">
+<div class="title">
+          Effectively Leveraging Capacity for Improved Deterministic Robustness Certification
+          <span class="tag">ICLR 2024</span>
+</div>
+<div class="authors"><strong>Kai Hu</strong>, Klas Leino, Zifan Wang, Matt Fredrikson</div>
+<div class="links">
+<a href="https://arxiv.org/pdf/2310.02513" rel="noopener noreferrer" target="_blank">PDF</a>
+<a href="https://github.com/hukkai/liresnet" rel="noopener noreferrer" target="_blank">Code</a>
+</div>
+<details>
+<summary>Abstract</summary>
+<p class="abstract">Recent studies have highlighted the potential of Lipschitz-based methods for training certifiably robust neural networks against adversarial attacks. A key challenge, supported both theoretically and empirically, is that robustness demands greater network capacity and more data than standard training. However, effectively adding capacity under stringent Lipschitz constraints has proven more difficult than it may seem, evident by the fact that state-of-the-art approach tend more towards underfitting than overfitting. Moreover, we posit that a lack of careful exploration of the design space for Lipschitz-based approaches has left potential performance gains on the table. In this work, we provide a more comprehensive evaluation to better uncover the potential of Lipschitz-based certification methods. Using a combination of novel techniques, design optimizations, and synthesis of prior work, we are able to significantly improve the state-of-the-art VRA for deterministic certification on a variety of benchmark datasets, and over a range of perturbation sizes. Of particular note, we discover that the addition of large ``Cholesky-orthogonalized residual dense'' layers to the end of existing state-of-the-art Lipschitz-controlled ResNet architectures is especially effective for increasing network capacity and performance. Combined with filtered generative data augmentation, our final results further the state of the art deterministic VRA by up to 8.5 percentage points.</p>
+</details>
+</li>
+<li class="paper">
+<div class="title">
+          Scaling in Depth: Unlocking Robustness Certification on ImageNet
+          <span class="tag">NeurIPS 2023</span>
+</div>
+<div class="authors"><strong>Kai Hu</strong>, Andy Zou, Zifan Wang, Klas Leino, Matt Fredrikson</div>
+<div class="links">
+<a href="https://proceedings.neurips.cc/paper_files/paper/2023/file/863da9d40547f1d1b18859519ce2dee4-Paper-Conference.pdf" rel="noopener noreferrer" target="_blank">PDF</a>
+<a href="https://github.com/hukkai/liresnet" rel="noopener noreferrer" target="_blank">Code</a>
+</div>
+<details>
+<summary>Abstract</summary>
+<p class="abstract">Despite the promise of Lipschitz-based methods for provably-robust deep learning with deterministic guarantees, current state-of-the-art results are limited to feed-forward Convolutional Networks (ConvNets) on low-dimensional data, such as CIFAR-10. This paper investigates strategies for expanding certifiably robust training to larger, deeper models. A key challenge in certifying deep networks is efficient calculation of the Lipschitz bound for residual blocks found in ResNet and ViT architectures. We show that fast ways of bounding the Lipschitz constant for conventional ResNets are loose, and show how to address this by designing a new residual block, leading to the Linear ResNet (LiResNet) architecture. We then introduce Efficient Margin MAximization (EMMA), a loss function that stabilizes robust training by penalizing worst-case adversarial examples from multiple classes simultaneously. Together, these contributions yield new state-of-the-art robust accuracy on CIFAR-10/100 and Tiny-ImageNet under L2 perturbations. Moreover, for the first time, we are able to scale up fast deterministic robustness guarantees to ImageNet, demonstrating that this approach to robust learning can be applied to real-world applications.</p>
+</details>
+</li>
+</ul>
+<h2>Video Content Understanding</h2>
+<ul class="papers">
+<li class="paper">
+<div class="title">
+          M-LLM Based Video Frame Selection for Efficient Video Understanding
+          <span class="tag">CVPR 2025</span>
+</div>
+<div class="authors"><strong>Kai Hu</strong>, Feng Gao, Xiaohan Nie, Peng Zhou, Son Tran, Tal Neiman, Lingyun Wang, Mubarak Shah, Raffay Hamid, Bing Yin, Trishul Chilimbi</div>
+<div class="links">
+<a href="https://arxiv.org/pdf/2502.19680" rel="noopener noreferrer" target="_blank">PDF</a>
+</div>
+<details>
+<summary>Abstract</summary>
+<p class="abstract">Recent advances in Multi-Modal Large Language Models (M-LLMs) show promising results in video reasoning. Popular Multi-Modal Large Language Model (M-LLM) frameworks usually apply naive uniform sampling to reduce the number of video frames that are fed into an M-LLM, particularly for long context videos. However, it could lose crucial context in certain periods of a video, so that the downstream M-LLM may not have sufficient visual information to answer a question. To attack this pain point, we propose a light-weight M-LLM -based frame selection method that adaptively selects frames that are more relevant to users' queries. In order to train the proposed frame selector, we introduce two supervision signals (i) Spatial signal, where single frame importance score by prompting a M-LLM; (ii) Temporal signal, in which multiple frames selection by prompting Large Language Model (LLM) using the captions of all frame candidates. The selected frames are then digested by a frozen downstream video M-LLM for visual reasoning and question answering. Empirical results show that the proposed M-LLM video frame selector improves the performance of various downstream video Large Language Model (video-LLM) across medium (ActivityNet, NExT-QA) and long (EgoSchema, LongVideoBench) context video question answering benchmarks.</p>
+</details>
+</li>
+<li class="paper">
+<div class="title">
+          Contrast and Order Representations for Video Self-Supervised Learning
+          <span class="tag">ICCV 2021</span>
+</div>
+<div class="authors"><strong>Kai Hu</strong>, Jie Shao, Yuan Liu, Bhiksha Raj, Marios Savvides, Zhiqiang Shen</div>
+<div class="links">
+<a href="https://openaccess.thecvf.com/content/ICCV2021/papers/Hu_Contrast_and_Order_Representations_for_Video_Self-Supervised_Learning_ICCV_2021_paper.pdf" rel="noopener noreferrer" target="_blank">PDF</a>
+</div>
+<details>
+<summary>Abstract</summary>
+<p class="abstract">This paper studies the problem of learning self-supervised representations on videos. In contrast to image modality that only requires appearance information on objects or scenes, video needs to further explore the relations between multiple frames/clips along the temporal dimension. However, the recent proposed contrastive-based self-supervised frameworks do not grasp such relations explicitly since they simply utilize two augmented clips from the same video and compare their distance without referring to their temporal relation. To address this, we present a contrast-and-order representation  (CORP) framework for learning self-supervised video representations that can automatically capture both the appearance information within each frame and temporal information across different frames. In particular, given two video clips, our model first predicts whether they come from the same input video, and then predict the temporal ordering of the clips if they  come from the same video. We also propose a novel decoupling attention method to learn symmetric similarity (contrast) and anti-symmetric patterns (order). Such design involves neither extra parameters nor computation, but can speed up the learning process and improve accuracy compared to the vanilla multi-head attention. We extensively validate the representation ability of our learned video features for the downstream action recognition task on Kinetics-400 and Something-something V2. Our method outperforms previous state-of-the-arts by a significant margin.</p>
+</details>
+</li>
+</ul>
+<h2>Understanding the Training of Neural Networks</h2>
+<ul class="papers">
+<li class="paper">
+<div class="title">
+          Is normalization indispensable for training deep neural network?
+          <span class="tag">NeurIPS 2020</span>
+<span class="tag">Oral (top 1%)</span>
+</div>
+<div class="authors"><strong>Kai Hu</strong>*, Jie Shao*, Changhu Wang, Xiangyang Xue, Bhiksha Raj (*equal contribution)</div>
+<div class="links">
+<a href="https://www.andrew.cmu.edu/user/kaihu/Is_normalization_indispensable_for_training_deep_neural_networks.pdf" rel="noopener noreferrer" target="_blank">PDF</a>
+<a href="https://github.com/hukkai/rescaling" rel="noopener noreferrer" target="_blank">Code</a>
+</div>
+<details>
+<summary>Abstract</summary>
+<p class="abstract">Normalization operations are widely used to train deep neural networks, and they can improve both convergence and generalization in most tasks. The theories for normalization's effectiveness and new forms of normalization have always been hot topics in research. To better understand normalization, one question can be whether normalization is indispensable for training deep neural networks? In this paper, we analyze what would happen when normalization layers are removed from the networks, and show how to train deep neural networks without normalization layers and <strong>without performance degradation</strong>. Our proposed method can achieve the same or even slightly better performance in a variety of tasks: image classification in ImageNet, object detection and segmentation in MS-COCO, video classification in Kinetics, and machine translation in WMT English-German, etc. Our study may help better understand the role of normalization layers and can be a competitive alternative to normalization layers.</p>
+</details>
+</li>
+</ul>
+<h2>Other Works I Co-authored</h2>
+<ul class="papers">
+<li class="paper">
+<div class="title">
+          MIG: Automatic Data Selection for Instruction Tuning by Maximizing Information Gain in Semantic Space
+          <span class="tag">ACL 2025 Findings</span>
+</div>
+<div class="authors">Yicheng Chen, Yining Li, <strong>Kai Hu</strong>, Ma Zerun, HaochenYe, Kai Chen</div>
+<div class="links">
+<a href="https://aclanthology.org/2025.findings-acl.515.pdf" rel="noopener noreferrer" target="_blank">PDF</a>
+</div>
+</li>
+<li class="paper">
+<div class="title">
+          Learning Graph Invariance by Harnessing Spuriosity
+          <span class="tag">ICLR 2025</span>
+</div>
+<div class="authors">Tianjun Yao, Yongqiang Chen, <strong>Kai Hu</strong>, Tongliang Liu, Kun Zhang, Zhiqiang Shen</div>
+<div class="links">
+<a href="https://openreview.net/pdf?id=UsVJlgD1F7" rel="noopener noreferrer" target="_blank">PDF</a>
+</div>
+</li>
+<li class="paper">
+<div class="title">
+          Slight Corruption in Pre-training Data Makes Better Diffusion Models
+          <span class="tag">NeurIPS 2024</span>
+</div>
+<div class="authors">Hao Chen, Yujin Han, Diganta Misra, Xiang Li, <strong>Kai Hu</strong>, Difan Zou, Masashi Sugiyama, Jindong Wang, Bhiksha Raj</div>
+<div class="links">
+<a href="https://proceedings.neurips.cc/paper_files/paper/2024/file/e45c8d054739d31676619e7e11327f68-Paper-Conference.pdf" rel="noopener noreferrer" target="_blank">PDF</a>
+</div>
+</li>
+<li class="paper">
+<div class="title">
+          Empowering Graph Invariance Learning with Deep Spurious Infomax
+          <span class="tag">ICML 2024</span>
+</div>
+<div class="authors">Tianjun Yao, Yongqiang Chen, Zhenhao Chen, <strong>Kai Hu</strong>, Zhiqiang Shen, Kun Zhang</div>
+<div class="links">
+<a href="https://arxiv.org/pdf/2407.11083" rel="noopener noreferrer" target="_blank">PDF</a>
+</div>
+</li>
+<li class="paper">
+<div class="title">
+          Completing Visual Objects via Bridging Generation and Segmentation
+          <span class="tag">ICML 2024</span>
+</div>
+<div class="authors">Xiang Li, Yinpeng Chen, Chung-Ching Lin, Hao Chen, <strong>Kai Hu</strong>, Rita Singh, Bhiksha Raj, Lijuan Wang, Zicheng Liu</div>
+<div class="links">
+<a href="https://arxiv.org/pdf/2310.00808" rel="noopener noreferrer" target="_blank">PDF</a>
+</div>
+</li>
+<li class="paper">
+<div class="title">
+          Enhanced Training of Query-Based Object Detection via Selective Query Recollection
+          <span class="tag">CVPR 2023</span>
+</div>
+<div class="authors">Fangyi Chen, Han Zhang, <strong>Kai Hu</strong>, Yukai Huang, Chenchen Zhu, Marios Savvides</div>
+<div class="links">
+<a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Chen_Enhanced_Training_of_Query-Based_Object_Detection_via_Selective_Query_Recollection_CVPR_2023_paper.pdf" rel="noopener noreferrer" target="_blank">PDF</a>
+</div>
+</li>
+</ul>
+</main>
+</body>
+</html>
