@@ -221,6 +221,24 @@
 <p class="abstract">Normalization operations are widely used to train deep neural networks, and they can improve both convergence and generalization in most tasks. The theories for normalization's effectiveness and new forms of normalization have always been hot topics in research. To better understand normalization, one question can be whether normalization is indispensable for training deep neural networks? In this paper, we analyze what would happen when normalization layers are removed from the networks, and show how to train deep neural networks without normalization layers and <strong>without performance degradation</strong>. Our proposed method can achieve the same or even slightly better performance in a variety of tasks: image classification in ImageNet, object detection and segmentation in MS-COCO, video classification in Kinetics, and machine translation in WMT English-German, etc. Our study may help better understand the role of normalization layers and can be a competitive alternative to normalization layers.</p>
 </details>
 </li>
+
+<li class="paper">
+<div class="title">
+          Revisiting Exploding Gradient: A Ghost That Never Leaves?
+          <span class="tag">Manuscript</span>
+<span class="tag">Oral (top 1%)</span>
+</div>
+<div class="authors"><strong>Kai Hu</strong>, Matt Fredrikson</div>
+<div class="links">
+<a href="https://www.andrew.cmu.edu/user/kaihu/Revisiting_Exploding_Gradient.pdf" rel="noopener noreferrer" target="_blank">PDF</a>
+<a href="https://github.com/hukkai/no-residual-network" rel="noopener noreferrer" target="_blank">Code</a>
+</div>
+<details>
+<summary>Abstract</summary>
+<p class="abstract">The exploding gradient problem is one of the main barrier to training deep neural networks. It is widely believed that this problem can be greatly solved by techniques such as careful weight initialization and normalization layers.  However, we find that exploding gradients still exist in deep neural networks, and normalization layers are only able to conceal this problem. Our theory shows that the source of such exploding gradients does not come from the linear layer weights but non-linear activations. Specifically, plain networks' gradient increases exponentially with the number of nonlinear layers. Based on our theory, we are able to mitigate this gradient problem and train deep plain networks without any skip connection or shortcuts. Our 50-layer plain network, SeqNet50 achieves a 77.1% top-1 validation accuracy on ImageNet, matching the performance of ResNet50. We hope our work can provide new insights about deep neural networks.</p>
+</details>
+</li>
+
 </ul>
 <h2>Other Works I Co-authored</h2>
 <ul class="papers">
